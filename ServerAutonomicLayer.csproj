@@ -50,7 +50,7 @@
       <Link>ChatMessage.cs</Link>
     </Compile>
     <Compile Include="ChatServer.cs" />
-    <Compile Include="MessageRepository.cs" />
+    <Compile Include="MessageAction.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -10,11 +10,11 @@ using System.Threading.Tasks;
 
 namespace ServerAutonomicLayer
 {
-    class MessageRepository
+    class MessageAction
     {
         private string connectionString;
 
-        public MessageRepository(string connectionString)
+        public MessageAction(string connectionString)
         {
             this.connectionString = connectionString;
         }
@@ -26,14 +26,12 @@ namespace ServerAutonomicLayer
             var data = new DataSet();
             adapter.Fill(data);
             List<ChatMessage> result = new List<ChatMessage>();
-
             foreach (DataRow item in data.Tables[0].Rows)
             {
                 result.Add(new ChatMessage()
                 {
                     Message = (string)item["Message"]
                 });
-
             }
             return result;
         }
@@ -69,7 +67,6 @@ namespace ServerAutonomicLayer
                 Dbconn.Open();
                 command.ExecuteScalar();
             }
-
         }
 
         public string LogInCheck(string User, string password)
@@ -114,15 +111,12 @@ namespace ServerAutonomicLayer
                         command2.Parameters.AddWithValue("@password", password);
                         Dbconn2.Open();
                         command2.ExecuteNonQuery();
-
                     }
                     check = "1";
                 }
-
             }
 
             return check;
         }
-
     }
 }
